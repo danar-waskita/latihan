@@ -1,0 +1,470 @@
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4f4f4; 
+    /* PENTING: Untuk memberikan ruang di bawah fixed Navbar */
+    padding-top: 70px; 
+}
+
+/* --- NAVBAR --- */
+/* Hapus semua aturan display: flex, justify-content, position: fixed dll. 
+   Karena sudah ditangani oleh kelas Bootstrap: .navbar-expand-lg .fixed-top */
+
+/* --- NAVBAR --- */
+.navbar {
+
+    padding: 0 30px; /* Jaga padding horizontal */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+
+}
+/* Styling kustom untuk Navbar Brand dan Link */
+.navbar-brand .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.navbar-nav .nav-link {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #FFA500; 
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #FFA500; 
+}
+
+/* UNIVERSAL SECTION TITLE (Gaya Standar - PUTIH) */
+.section-title {
+    display: inline-block;
+    padding: 10px 28px;
+    background: white; /* STANDAR: Latar belakang putih solid */
+    border: 2px solid black;
+    border-radius: 12px;
+    margin-bottom: 30px; 
+    text-transform: uppercase;
+    color: black; /* STANDAR: Teks hitam solid */
+    
+    /* Reset z-index dan position untuk bagian non-contact */
+    z-index: auto; 
+    position: static; 
+}
+
+/* 🚀 HERO (Bootstrap Carousel) */
+/* ================================================================= */
+
+.hero {
+    padding: 0;
+    margin: 0;
+}
+
+/* KUNCI 1: Mengatur tinggi Carousel agar sesuai sisa layar (PENTING) */
+#carouselExampleCaptions {
+    height: calc(100vh - 80px); /* 100% tinggi viewport dikurangi tinggi navbar */
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.carousel-item {
+    height: 100%; 
+}
+
+/* KUNCI 2: Memastikan gambar mengisi penuh item carousel */
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    filter: brightness(0.8); 
+}
+
+/* KUNCI 3: Perbaikan Kunci pada Caption (Mengatasi Berantakan) */
+.carousel-caption {
+    /* Gunakan posisi bottom: 0; */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    
+    /* Batas tinggi maksimum caption agar tidak memenuhi layar */
+    max-height: 40%; 
+    
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); 
+    padding-top: 50px; 
+    padding-bottom: 20px;
+    z-index: 10; 
+}
+
+.carousel-caption h5 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #FFFF00;
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+}
+
+/* KUNCI 4: CSS untuk Indikator (Mengatasi Berantakan) */
+.carousel-indicators {
+    bottom: 20px; 
+    margin-bottom: 0; 
+    margin-right: 0; 
+    margin-left: 0; 
+    z-index: 15; 
+}
+
+/* CAROUSEL BUTTON Z-INDEX FIX */
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 20; 
+    opacity: 0.8; 
+    transition: opacity 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+/* ================================================================= */
+
+
+/* --- SERVICES SECTION --- */
+.services-section {
+    background: white;
+    padding: 60px 20px; 
+    text-align: center;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; 
+    margin: 0 auto; 
+    max-width: 1200px; 
+}
+
+
+.cards {
+    width: 300px;
+    height: 400px;
+    border-radius: 15px;
+    position: relative;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-overlay {
+    background: rgba(0,0,0,0.7); 
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    transition: background 0.3s ease;
+}
+
+/* Efek hover */
+.cards:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.cards:hover .card-overlay {
+    background: rgba(0,0,0,0.85); 
+}
+
+/* Background gambar tiap card */
+.card-1996 {
+    background-image: url('../foto untuk latihan/rossi\ awal.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.card-2001 {
+    background-image: url('../foto untuk latihan/rossijurdun.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.card-2004 {
+    background-image: url('../foto untuk latihan/rossi2005.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- ABOUT SECTION --- */
+.about-section {
+    background: #fcfcfc;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about-desc {
+    margin: 20px auto 30px auto;
+    max-width: 700px;
+}
+
+.about-content {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: flex-start; 
+    flex-wrap: nowrap; 
+}
+
+.text {
+    width: 350px; 
+    text-align: left;
+}
+
+.performance {
+    width: 100%; 
+    max-width: 350px;
+    text-align: center; 
+}
+
+
+/* === CSS BARU UNTUK FOTO DI BAGIAN STATISTIC === */
+
+/* 1. CSS untuk Gambar Hero Statistik */
+.image-hero-about {
+    margin: 30px auto; 
+    max-width: 800px; 
+    overflow: hidden; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.responsive-image-about {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+}
+
+/* 2. CSS untuk Gambar Kurva Karir */
+.performance-chart {
+    /* Atur agar gambar kurva mengisi area dengan baik */
+    width: 100%; 
+    max-width: 400px; 
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    margin-top: 20px; 
+    display: block; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+/* --- CONTACT SECTION (VIDEO BACKGROUND - MODERN & TRANSPARAN) --- */
+.contact-section {
+    position: relative; 
+    background: #000; 
+    text-align: center;
+    padding: 80px 20px; 
+    color: white; /* Teks utama berwarna putih */
+    overflow: hidden;
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+}
+
+/* Gaya Modern dan Transparan KHUSUS JUDUL CONTACT */
+.contact-section .section-title {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparan putih */
+    backdrop-filter: blur(5px); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 15px; 
+    padding: 12px 35px; 
+    color: white; 
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 40px; 
+    text-transform: uppercase; 
+    z-index: 5; 
+    position: relative; /* Penting untuk tumpukan (stacking) */
+}
+
+
+.video-background-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; 
+}
+
+.video-background {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+    /* Video: Lebih gelap */
+    filter: brightness(0.3) grayscale(20%); 
+    object-fit: cover; 
+}
+
+/* KUNCI: Pastikan semua konten formulir berada di atas video */
+.contact-form {
+    position: relative;
+    z-index: 5; 
+
+    /* Kontainer Form Transparan */
+    background-color: rgba(0, 0, 0, 0.3); 
+    padding: 35px; 
+    border-radius: 15px; 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); 
+    backdrop-filter: blur(8px); 
+    margin-top: 0; 
+    
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Form Input dan Textarea Transparan */
+.contact-form input,
+.contact-form textarea {
+    background-color: rgba(255, 255, 255, 0.15); /* Sangat transparan */
+    color: white; 
+    border: 1px solid rgba(255, 255, 255, 0.4); 
+    border-radius: 8px; 
+    padding: 14px 18px; 
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Placeholder putih semi-transparan (lebih terlihat) */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background-color: rgba(255, 255, 255, 0.25); 
+    border-color: #FFFF00; 
+    box-shadow: 0 0 8px rgba(255, 255, 0, 0.6); 
+    outline: none;
+}
+
+/* Tombol Submit */
+.submit-btn {
+    background-color: rgba(255, 255, 0, 0.8); 
+    color: #111; 
+    border: 2px solid #FFFF00; 
+    border-radius: 12px;
+    padding: 16px; 
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:hover {
+    background-color: #FFFF00; 
+    color: #000;
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
+}
+
+
+/* --- FOOTER --- */
+.footer {
+    background: #111; 
+    color: #ccc; 
+    padding: 30px; 
+    text-align: center;
+    margin-top: 0; 
+}
+
+/* Style untuk konten footer yang baru */
+.footer .footer-content-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer .footer-links a {
+    color: #FFFF00;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+.footer .footer-links a:hover {
+    color: #FFA500;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- PERBAIKAN SCROLLING UNTUK NAVBAR FIXED (HOME & SECTIONS) --- */
+/* ----------------------------------------------------------------- */
+
+/* Menambahkan margin di atas target link agar tidak tertutup navbar fixed (tinggi navbar 80px) */
+
+/* Untuk Carousel (Home Section) */
+#carouselExampleCaptions {
+    scroll-margin-top: 80px; 
+}
+
+/* Untuk semua Section (History, Statistic, Contact) */
+section {
+    scroll-margin-top: 80px; 
+}
